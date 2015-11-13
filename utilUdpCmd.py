@@ -1,6 +1,7 @@
 #import serial
 import time
 import socket
+import utilSetting
 
 def procCommand(rcvstr):
 	print "rcvd:", rcvstr
