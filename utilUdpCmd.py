@@ -2,8 +2,6 @@ import time
 import socket
 from utilSetting import CSetting
 
-g_setting = CSetting()
-
 # TODO: 1> error handling > cmd typo etc
 # TODO: 0c> add utilCom.py > COM relay feature
 # TODO: 0m> move main() to linemonitor.py
