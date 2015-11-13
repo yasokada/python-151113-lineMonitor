@@ -1,10 +1,25 @@
-#import serial
 import time
 import socket
-import utilSetting
 from utilSetting import CSetting
 
 g_setting = CSetting()
+
+# TODO: error handling > cmd typo etc
+
+def procSetCommand(rcvstr):
+	cmds = rcvstr.split(",")
+	if "mon" in cmds[1]:
+		count = len(cmds)
+		if count == 4:
+			# TODO: set monitor
+			print "set monitor (ip, port)"
+	if "comdelay" in cmds[1]:
+		g_setting.setComdelay(int(cmds[2]))
+		print "set comdelay"
+		print g_setting.getComdelay()
+
+def procGetCommand(rcvstr):
+	return
 
 def procCommand(rcvstr):
 	rcvstr = rcvstr.rstrip('\n')
@@ -12,15 +27,9 @@ def procCommand(rcvstr):
 	print "rcvd:[", rcvstr, "]"
 	cmds = rcvstr.split(",")
 	if "set" in cmds[0]:
-		if "mon" in cmds[1]:
-			count = len(cmds)
-			if count == 4:
-				print "set monitor (ip, port)"
-		if "comdelay" in cmds[1]:
-			g_setting.setComdelay(int(cmds[2]))
-			print "set comdelay"
-			print g_setting.getComdelay()
-
+		procSetCommand(rcvstr)
+	if "get" in cmds[0]:
+		procGetCommand(rcvstr)
 	return
 
 def recvCommand(cmdsock, rcvcmd):
