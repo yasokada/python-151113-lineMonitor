@@ -3,6 +3,7 @@ class CSetting:
 		self.monip = "192.168.10.8"
 		self.monport = 9000
 		self.comdelay = 0 # [msec]
+		self.cmdport = 7000
 
 	def getMonip(self):
 		return self.monip
@@ -24,3 +25,5 @@ class CSetting:
 	def setComdelay(self, comdelay_):
 		self.comdelay = comdelay_
 		return
+
+# TODO: get/set current ip address
