@@ -9,7 +9,7 @@ g_setting = CSetting()
 # TODO: 0m> move main() to linemonitor.py
 # TODO: 1> can recgonize the setting change (e.g. monip was changed to xxx)
 # TODO: 0z> python > static function in a Class
-# TODO: 0m> add dummy serial package functions
+# TODO: 0a> add dummy serial package functions (.read() .write() .Serial())
 
 '''
 v0.1 2015/11/13
