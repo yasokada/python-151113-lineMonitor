@@ -11,14 +11,26 @@ def procSetCommand(rcvstr):
 	if "mon" in cmds[1]:
 		count = len(cmds)
 		if count == 4:
-			# TODO: set monitor
+			g_setting.setMonip(cmds[2])
+			g_setting.setMonport(cmds[3])
 			print "set monitor (ip, port)"
+			print g_setting.getMonip()
+			print g_setting.getMonport()
 	if "comdelay" in cmds[1]:
 		g_setting.setComdelay(int(cmds[2]))
 		print "set comdelay"
 		print g_setting.getComdelay()
 
 def procGetCommand(rcvstr):
+	cmds = rcvstr.split(",")
+	count = len(cmds)
+	if count == 2:
+		if "monip" in cmds[1]:
+			print "monip," + g_setting.getMonip()
+		if "monport" in cmds[1]:
+			print "monport," + `g_setting.getMonport()`
+		if "comdelay" in cmds[1]:
+			print "comdelay," + `g_setting.getComdelay()`
 	return
 
 def procCommand(rcvstr):
