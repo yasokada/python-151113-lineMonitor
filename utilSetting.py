@@ -26,4 +26,4 @@ class CSetting:
 		self.comdelay = comdelay_
 		return
 
-# TODO: get/set current ip address
+# TODO: 0m> get/set current ip address

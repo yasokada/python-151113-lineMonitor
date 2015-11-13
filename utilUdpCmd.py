@@ -4,7 +4,7 @@ from utilSetting import CSetting
 
 g_setting = CSetting()
 
-# TODO: error handling > cmd typo etc
+# TODO: 1> error handling > cmd typo etc
 
 '''
 v0.1 2015/11/13
