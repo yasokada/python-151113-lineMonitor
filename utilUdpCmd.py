@@ -2,16 +2,17 @@
 import time
 import socket
 
-def procSetCommand(cmd1, cmd2, cmd3):
-	return
-
 def procCommand(rcvstr):
 	print "rcvd:", rcvstr
 	cmds = rcvstr.split(",")
 	if "set" in cmds[0]:
-		count = len(cmds)
-		if count == 4:
-			procSetCommand(cmds[1],cmds[2],cmds[3])	
+		if "mon" in cmds[1]:
+			count = len(cmds)
+			if count == 4:
+				print "set monitor (ip, port)"
+		if "comdelay" in cmds[1]:
+			print "set comdelay"
+
 	return
 
 def recvCommand(cmdsock, rcvcmd):
