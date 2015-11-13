@@ -6,6 +6,11 @@ g_setting = CSetting()
 
 # TODO: error handling > cmd typo etc
 
+'''
+v0.1 2015/11/13
+  - can get/set settings (monitor ip, monitor port, com delay[msec])
+'''
+
 def procSetCommand(rcvstr):
 	cmds = rcvstr.split(",")
 	if "mon" in cmds[1]:
