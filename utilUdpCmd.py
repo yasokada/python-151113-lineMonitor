@@ -2,6 +2,9 @@
 import time
 import socket
 import utilSetting
+from utilSetting import CSetting
+
+mysetting = CSetting()
 
 def procCommand(rcvstr):
 	print "rcvd:", rcvstr
@@ -13,6 +16,7 @@ def procCommand(rcvstr):
 				print "set monitor (ip, port)"
 		if "comdelay" in cmds[1]:
 			print "set comdelay"
+			print mysetting.getMonport()
 
 	return
 
