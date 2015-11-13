@@ -5,9 +5,10 @@ from utilSetting import CSetting
 g_setting = CSetting()
 
 # TODO: 1> error handling > cmd typo etc
-# TODO: 0m> add COM replay feature
-# TODO: 0m> move main to linemonitor.py
+# TODO: 0m> add COM relay feature
+# TODO: 0m> move main() to linemonitor.py
 # TODO: 1> can recgonize the setting change (e.g. monip was changed to xxx)
+# TODO: 0z> python > static function in a Class
 
 '''
 v0.1 2015/11/13
