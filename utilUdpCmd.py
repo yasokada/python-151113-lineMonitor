@@ -4,10 +4,12 @@ import socket
 import utilSetting
 from utilSetting import CSetting
 
-mysetting = CSetting()
+g_setting = CSetting()
 
 def procCommand(rcvstr):
-	print "rcvd:", rcvstr
+	rcvstr = rcvstr.rstrip('\n')
+	rcvstr = rcvstr.rstrip('\r')
+	print "rcvd:[", rcvstr, "]"
 	cmds = rcvstr.split(",")
 	if "set" in cmds[0]:
 		if "mon" in cmds[1]:
@@ -15,8 +17,9 @@ def procCommand(rcvstr):
 			if count == 4:
 				print "set monitor (ip, port)"
 		if "comdelay" in cmds[1]:
+			g_setting.setComdelay(int(cmds[2]))
 			print "set comdelay"
-			print mysetting.getMonport()
+			print g_setting.getComdelay()
 
 	return
 
