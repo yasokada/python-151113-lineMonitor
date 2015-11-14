@@ -15,31 +15,36 @@ v0.1 2015/11/13
   - can get/set settings (monitor ip, monitor port, com delay[msec])
 '''
 
+s_setting = CSetting()
+
+def getSetting():
+	return s_setting
+
 def procSetCommand(rcvstr):
 	cmds = rcvstr.split(",")
 	if "mon" in cmds[1]:
 		count = len(cmds)
 		if count == 4:
-			g_setting.setMonip(cmds[2])
-			g_setting.setMonport(cmds[3])
+			s_setting.setMonip(cmds[2])
+			s_setting.setMonport(cmds[3])
 			print "set monitor (ip, port)"
-			print g_setting.getMonip()
-			print g_setting.getMonport()
+			print s_setting.getMonip()
+			print s_setting.getMonport()
 	if "comdelay" in cmds[1]:
-		g_setting.setComdelay(int(cmds[2]))
+		s_setting.setComdelay(int(cmds[2]))
 		print "set comdelay"
-		print g_setting.getComdelay()
+		print s_setting.getComdelay()
 
 def procGetCommand(rcvstr):
 	cmds = rcvstr.split(",")
 	count = len(cmds)
 	if count == 2:
 		if "monip" in cmds[1]:
-			print "monip," + g_setting.getMonip()
+			print "monip," + s_setting.getMonip()
 		if "monport" in cmds[1]:
-			print "monport," + `g_setting.getMonport()`
+			print "monport," + `s_setting.getMonport()`
 		if "comdelay" in cmds[1]:
-			print "comdelay," + `g_setting.getComdelay()`
+			print "comdelay," + `s_setting.getComdelay()`
 	return
 
 def procCommand(rcvstr):
