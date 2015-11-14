@@ -1,3 +1,9 @@
+
+'''
+v0.1 2015/11/13
+  - add dummySerial.py
+'''
+
 class CDummySerial:
 	def __init__(self):
 		# do nothing
@@ -14,7 +20,7 @@ class CDummySerial:
 		return ""
 
 	@staticmethod
-	def Serial(name, baud, timeout_sec):
+	def Serial(name, baud, timeout):
 		work = CDummySerial()
 		return work
 
