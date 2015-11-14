@@ -11,12 +11,12 @@ class CDummySerial:
 
 	def read(self):
 		# do nothing
-		print "read:" # TODO: 0 > remove
+#		print "read:" # TODO: 0 > remove
 		return ""
 
 	def write(self,txstr):
 		# do nothing
-		print "write:", txstr # TODO: 0 > remove
+#		print "write:", txstr # TODO: 0 > remove
 		return ""
 
 	@staticmethod
