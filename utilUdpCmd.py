@@ -3,10 +3,7 @@ import socket
 from utilSetting import CSetting
 
 # TODO: 1> error handling > cmd typo etc
-# TODO: 0c> add utilCom.py > COM relay feature
-# TODO: 0m> move main() to linemonitor.py
 # TODO: 1> can recgonize the setting change (e.g. monip was changed to xxx)
-# TODO: 0z> python > static function in a Class
 
 '''
 v0.2 2015/11/13
