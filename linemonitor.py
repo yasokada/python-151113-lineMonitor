@@ -4,9 +4,9 @@ from utilComRelay import comrelay
 import socket
 
 #--- selection of import based on the package ---
-''' with python3-serial'''
+''' 1. with python3-serial'''
 #import serial
-''' without python3-serial'''
+''' 2. without python3-serial'''
 from dummySerial import CDummySerial
 serial = CDummySerial()
 #-----------------
