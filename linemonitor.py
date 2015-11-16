@@ -1,6 +1,6 @@
 from utilUdpCmd import recvCommand, procCommand, getSetting
 from utilSetting import CSetting
-from utilComRelay import comrelay
+from utilComRelay import comrelay, comReopen
 import socket
 
 #--- selection of import based on the package ---
