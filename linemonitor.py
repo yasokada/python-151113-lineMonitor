@@ -14,6 +14,7 @@ import serial
 
 '''
 v0.3 2015/11/16
+  - can change combaud (but not using comReopen())
   - add get/set settings (combaud)
 v0.2 2015/11/13
   - add dummySerial.py
