@@ -19,3 +19,10 @@ def comrelay(rcvd, srccom, dstcom):
 
     return rcvd, False # new line = false
 
+def comReopen(con1, con2, combaud):
+	con1.close()
+	con2.close()
+	con1 = serial.Serial('/dev/ttyUSB1', combaud, timeout=0.1)
+	con2 = serial.Serial('/dev/ttyUSB0', combaud, timeout=0.1)
+	return
+

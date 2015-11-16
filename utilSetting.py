@@ -5,13 +5,18 @@ class CSetting:
 		self.comdelay = 0 # [msec]
 		self.cmdport = 7000
 		self.combaud = 9600
+		self.baudchange = False
 
 	def getCombaud(self):
 		return self.combaud
 
 	def setCombaud(self,combaud_):
 		self.combaud = combaud_
+		self.baudchange = True
 		return
+
+	def getBaudChange(self):
+		return self.baudchange
 
 	def getMonip(self):
 		return self.monip
@@ -38,4 +43,3 @@ class CSetting:
 		return self.cmdport
 
 # TODO: 0m> get/set current ip address of RPi2
-# TODO: 0m> recognize baud change

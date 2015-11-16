@@ -55,6 +55,9 @@ def main():
 		monip = g_setting.getMonip()
 		monport = g_setting.getMonport()
 
+		if g_setting.getBaudChange() == True:
+			comReopen( con1, con2, g_setting.getBaud() )
+
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
 		if isNL == True: # new line
 			monsock.sendto("1:" + rcvd1, (monip, monport))
