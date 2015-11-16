@@ -3,7 +3,7 @@ import socket
 from utilSetting import CSetting
 
 # TODO: 1> error handling > cmd typo etc
-# TODO: 1> can recgonize the setting change (e.g. monip was changed to xxx)
+# TODO: 1> recgonize the setting change (e.g. monip was changed to xxx) > not sure necessary or not
 
 '''
 v0.2 2015/11/13
