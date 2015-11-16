@@ -11,6 +11,16 @@ from dummySerial import CDummySerial
 serial = CDummySerial()
 #-----------------
 
+
+'''
+v0.3 2015/11/16
+  - add get/set settings (combaud)
+v0.2 2015/11/13
+  - add dummySerial.py
+v0.1 2015/11/13
+  - can get/set settings (monitor ip, monitor port, com delay[msec])
+'''
+
 # HACKME: something does not sit right concerning "setting" passing (g_setting)
 
 g_setting = CSetting() # for having g_setting as global
