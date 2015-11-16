@@ -30,3 +30,6 @@ class CSetting:
 		return self.cmdport
 
 # TODO: 0m> get/set current ip address of RPi2
+# TODO: 0m> get current Baud (e.g. 9600)
+# TODO: 0m> set Baud
+# TODO: 0m> recognize baud change
