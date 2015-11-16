@@ -5,10 +5,10 @@ import socket
 
 #--- selection of import based on the package ---
 ''' 1. with python3-serial'''
-#import serial
+import serial
 ''' 2. without python3-serial'''
-from dummySerial import CDummySerial
-serial = CDummySerial()
+#from dummySerial import CDummySerial
+#serial = CDummySerial()
 #-----------------
 
 
@@ -56,7 +56,7 @@ def main():
 		monport = g_setting.getMonport()
 
 		if g_setting.getBaudChange() == True:
-			comReopen( con1, con2, g_setting.getBaud() )
+			comReopen( con1, con2, g_setting.getCombaud() )
 
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
 		if isNL == True: # new line

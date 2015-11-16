@@ -1,10 +1,10 @@
 
 #--- selection of import based on the package ---
 ''' 1. with python3-serial'''
-#import serial
+import serial
 ''' 2. without python3-serial'''
-from dummySerial import CDummySerial
-serial = CDummySerial()
+#from dummySerial import CDummySerial
+#serial = CDummySerial()
 #-----------------
 
 
