@@ -6,13 +6,13 @@ from utilSetting import CSetting
 # TODO: 1> recgonize the setting change (e.g. monip was changed to xxx) > not sure necessary or not
 
 '''
+v0.3 2015/11/16
+  - add get/set settings (combaud)
 v0.2 2015/11/13
   - add dummySerial.py
 v0.1 2015/11/13
   - can get/set settings (monitor ip, monitor port, com delay[msec])
 '''
-
-# TODO: 0c> add set,combaud... / get,combaud...
 
 s_setting = CSetting()
 
@@ -33,6 +33,10 @@ def procSetCommand(rcvstr):
 		s_setting.setComdelay(int(cmds[2]))
 		print "set comdelay"
 		print s_setting.getComdelay()
+	if "combaud" in cmds[1]:
+		s_setting.setCombaud(int(cmds[2]))
+		print "set combaud"
+		print s_setting.getCombaud()
 
 def procGetCommand(rcvstr):
 	cmds = rcvstr.split(",")
@@ -44,6 +48,8 @@ def procGetCommand(rcvstr):
 			print "monport," + `s_setting.getMonport()`
 		if "comdelay" in cmds[1]:
 			print "comdelay," + `s_setting.getComdelay()`
+		if "combaud" in cmds[1]:
+			print "combaud," + `s_setting.getCombaud()`
 	return
 
 def procCommand(rcvstr):
