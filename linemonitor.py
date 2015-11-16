@@ -17,7 +17,7 @@ g_setting = CSetting() # for having g_setting as global
 
 def main():
 	# command udp setting
-	cmdip = ""
+	cmdip = "" # INADDR_ANY
 	g_setting = getSetting() # HACKME: 
 	cmdport = g_setting.getCmdPort()
 	cmdsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -37,8 +37,13 @@ def main():
 	rcvd2 = ""
 	rcvcmd = ""	
 
+# TODO: 0z > add COM delay feature
+
 	while 1:
-		g_setting = getSetting() # HACKME: 
+		#HACKME: -----------------
+		g_setting = getSetting()
+		monip = g_setting.getMonip()
+		monport = g_setting.getMonport()
 
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
 		if isNL == True:
