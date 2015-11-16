@@ -4,6 +4,14 @@ class CSetting:
 		self.monport = 9000
 		self.comdelay = 0 # [msec]
 		self.cmdport = 7000
+		self.combaud = 9600
+
+	def getCombaud(self):
+		return self.combaud
+
+	def setCombaud(self,combaud_):
+		self.combaud = combaud_
+		return
 
 	def getMonip(self):
 		return self.monip
