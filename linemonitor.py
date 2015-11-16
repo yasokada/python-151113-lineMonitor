@@ -40,13 +40,13 @@ def main():
 # TODO: 0z > add COM delay feature
 
 	while 1:
-		#HACKME: -----------------
+		#HACKME: ---- calling getSetting(), then, g_setting.getXXX() is not a good style
 		g_setting = getSetting()
 		monip = g_setting.getMonip()
 		monport = g_setting.getMonport()
 
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
-		if isNL == True:
+		if isNL == True: # new line
 			monsock.sendto("1:" + rcvd1, (monip, monport))
 			rcvd1 = ""
 		
