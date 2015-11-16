@@ -18,8 +18,8 @@ class CSetting:
 	def getBaudChange(self):
 		return self.baudchange
 
-	def setBaudChange(self):
-		self.baudchange = False
+	def setBaudChange(self, bfTrue):
+		self.baudchange = bfTrue
 		return
 
 	def getMonip(self):

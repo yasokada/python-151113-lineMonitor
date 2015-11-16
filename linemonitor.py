@@ -57,6 +57,7 @@ def main():
 
 		if g_setting.getBaudChange() == True:
 			comReopen( con1, con2, g_setting.getCombaud() )
+			g_setting.setBaudChange(False)
 
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
 		if isNL == True: # new line

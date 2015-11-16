@@ -7,6 +7,7 @@ import serial
 #serial = CDummySerial()
 #-----------------
 
+import time
 
 def comrelay(rcvd, srccom, dstcom):
     str1 = srccom.read()
@@ -22,6 +23,7 @@ def comrelay(rcvd, srccom, dstcom):
 def comReopen(con1, con2, combaud):
 	con1.close()
 	con2.close()
+	time.sleep(0.1) # TODO: 1> not sure necessary or not
 	con1 = serial.Serial('/dev/ttyUSB1', combaud, timeout=0.1)
 	con2 = serial.Serial('/dev/ttyUSB0', combaud, timeout=0.1)
 	return
