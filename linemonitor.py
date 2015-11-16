@@ -56,7 +56,12 @@ def main():
 		monport = g_setting.getMonport()
 
 		if g_setting.getBaudChange() == True:
-			comReopen( con1, con2, g_setting.getCombaud() )
+#			comReopen( con1, con2, g_setting.getCombaud() )
+			con1.close()
+			con2.close()
+			combaud = g_setting.getCombaud()
+			con1=serial.Serial('/dev/ttyUSB1', combaud, timeout=0.1)
+			con2=serial.Serial('/dev/ttyUSB0', combaud, timeout=0.1)
 			g_setting.setBaudChange(False)
 
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
