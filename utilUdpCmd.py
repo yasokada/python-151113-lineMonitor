@@ -12,6 +12,8 @@ v0.1 2015/11/13
   - can get/set settings (monitor ip, monitor port, com delay[msec])
 '''
 
+# TODO: 0c> add set,combaud... / get,combaud...
+
 s_setting = CSetting()
 
 def getSetting():
