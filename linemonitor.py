@@ -13,6 +13,8 @@ import serial
 
 
 '''
+v0.4 2015/11/21
+  - fix bug on monport > TypeError: an integer is required
 v0.3 2015/11/16
   - can change combaud (but not using comReopen())
   - add get/set settings (combaud)
@@ -54,7 +56,7 @@ def main():
 		#HACKME: ---- calling getSetting(), then, g_setting.getXXX() is not a good style
 		g_setting = getSetting()
 		monip = g_setting.getMonip()
-		monport = g_setting.getMonport()
+		monport = `g_setting.getMonport()`
 
 		if g_setting.getBaudChange() == True:
 #			comReopen( con1, con2, g_setting.getCombaud() )
