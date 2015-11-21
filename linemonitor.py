@@ -69,12 +69,12 @@ def main():
 
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
 		if isNL == True: # new line
-			monsock.sendto("1:" + rcvd1, (monip, (int)monport)
+			monsock.sendto("1:" + rcvd1, (monip, int(monport)))
 			rcvd1 = ""
 		
 		rcvd2,isNL = comrelay(rcvd2, con2, con1)
 		if isNL == True:
-			monsock.sendto("2:" + rcvd2, (monip, (int)monport)
+			monsock.sendto("2:" + rcvd2, (monip, int(monport)))
 			rcvd2 = ""
 
 		rcvcmd,rcvd = recvCommand(cmdsock, rcvcmd)
