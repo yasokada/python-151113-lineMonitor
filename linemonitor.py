@@ -13,6 +13,8 @@ import serial
 
 
 '''
+v0.5 2015/11/21
+  - tweak Seiral timeout to fix slowness of the communication 
 v0.4 2015/11/21
   - fix bug on monport > TypeError: an integer is required
 v0.3 2015/11/16
@@ -41,8 +43,8 @@ def main():
 	monport = g_setting.getMonport()
 	monsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	# COM setting
-	con1=serial.Serial('/dev/ttyUSB1', 9600, timeout=0.1)
-	con2=serial.Serial('/dev/ttyUSB0', 9600, timeout=0.1)
+	con1=serial.Serial('/dev/ttyUSB1', 9600, timeout=0.001)
+	con2=serial.Serial('/dev/ttyUSB0', 9600, timeout=0.001)
 
 	print "cmdport=", cmdport
 
@@ -63,8 +65,8 @@ def main():
 			con1.close()
 			con2.close()
 			combaud = g_setting.getCombaud()
-			con1=serial.Serial('/dev/ttyUSB1', combaud, timeout=0.1)
-			con2=serial.Serial('/dev/ttyUSB0', combaud, timeout=0.1)
+			con1=serial.Serial('/dev/ttyUSB1', combaud, timeout=0.001)
+			con2=serial.Serial('/dev/ttyUSB0', combaud, timeout=0.001)
 			g_setting.setBaudChange(False)
 
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
