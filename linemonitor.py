@@ -56,7 +56,7 @@ def main():
 		#HACKME: ---- calling getSetting(), then, g_setting.getXXX() is not a good style
 		g_setting = getSetting()
 		monip = g_setting.getMonip()
-		monport = `g_setting.getMonport()`
+		monport = g_setting.getMonport()
 
 		if g_setting.getBaudChange() == True:
 #			comReopen( con1, con2, g_setting.getCombaud() )
@@ -69,12 +69,12 @@ def main():
 
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
 		if isNL == True: # new line
-			monsock.sendto("1:" + rcvd1, (monip, monport))
+			monsock.sendto("1:" + rcvd1, (monip, monport=`monport`))
 			rcvd1 = ""
 		
 		rcvd2,isNL = comrelay(rcvd2, con2, con1)
 		if isNL == True:
-			monsock.sendto("2:" + rcvd2, (monip, monport))
+			monsock.sendto("2:" + rcvd2, (monip, monport=`monport`))
 			rcvd2 = ""
 
 		rcvcmd,rcvd = recvCommand(cmdsock, rcvcmd)
