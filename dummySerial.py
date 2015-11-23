@@ -1,5 +1,7 @@
 
 '''
+v0.2 2015/11/23
+  - add close()
 v0.1 2015/11/13
   - add dummySerial.py
 '''
@@ -17,6 +19,10 @@ class CDummySerial:
 	def write(self,txstr):
 		# do nothing
 #		print "write:", txstr # TODO: 0 > remove
+		return ""
+
+	def close(self):
+		# do nothing
 		return ""
 
 	@staticmethod
