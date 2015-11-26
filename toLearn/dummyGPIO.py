@@ -19,6 +19,10 @@ class CDummyGPIO:
 		# do nothing
 		return
 
+	def output(self, pinnum, onoff):
+		# do nothing
+		return
+
 # Usage
 
 '''
