@@ -1,6 +1,7 @@
 '''
 v0.1 2015/11/26
-  - 
+  - add setmode()
+  - add setup()
 '''
 
 class CDummyGPIO:
