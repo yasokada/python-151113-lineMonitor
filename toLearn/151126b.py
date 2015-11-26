@@ -34,17 +34,22 @@ onoff=[
 #-------------------
 codes=[ 3, 1, 4, 1]
 
-
+# 1. setup
 for idx in range(0, len(pinnum)):
 	GPIO.setup(pinnum[idx], GPIO.OUT)
 
+# 2. 7seg LED on
+for idx in range(0, len(pinnum)): # a..g
+	GPIO.setup(pinnum[idx], onoff[3][idx])
+time.sleep(5.0)
+
 print "-------"
 
-numsegs=8 # a..g
-
+'''
 for digit in range(0, 4): # TODO: 1> size of
 	code = codes[digit]
 	print code
-	for idx in range(0, numsegs):
+	for idx in range(0, len(pinnum)): # a..g
 		print pinnum[idx], onoff[code][idx]
 	time.sleep(1.0)
+'''
