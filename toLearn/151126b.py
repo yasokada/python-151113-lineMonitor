@@ -6,11 +6,11 @@ pinnum=[3, 5, 7, 11, 13, 15, 19, 21]
 onoff=[ 
 [True,  True, True, True,  True,      True,  True,  False ], # disp 0
 [False, True, True, False, False,     False, False, False ], # disp 1
+[True,  True, False, True,  True,      False,  True, False ], # disp 2
+[True,  True, True,  True, False,      False, True, False], # disp 3
+[False, True, True, False, False,      False, True,  False ], # disp 4
+[True, False, True, True, False,       True,  True, False], # disp 5
 # TODO: 1> disp 2..9
-[False, False, False, False, False,   False, False, False], # dummy 2
-[False, False, False, False, False,   False, False, False], # dummy 3
-[False, False, False, False, False,   False, False, False], # dummy 4
-[False, False, False, False, False,   False, False, False], # dummy 5
 [False, False, False, False, False,   False, False, False], # dummy 6
 [False, False, False, False, False,   False, False, False], # dummy 7
 [False, False, False, False, False,   False, False, False], # dummy 8
