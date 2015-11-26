@@ -8,14 +8,14 @@ from dummyGPIO import CDummyGPIO
 GPIO = CDummyGPIO()
 #-----------------
 
-# TODO: 0m > dummyGPIO
-
 GPIO.setmode(GPIO.BOARD)
 
 #-------------------
-# Pin# of RPi2 (changes according to connection)
+#[User Configuration]
+# Pin# of RPi2 (Change according to the cable connections)
 pinnum=[3, 5, 7, 11, 13, 15, 19, 21]
 #-------------------
+#[Do no change followings]
 # onoff bit (7segment led > a..g)
 onoff=[ 
 [True,  True, True, True,  True,      True,  True,  False ], # disp 0
@@ -31,25 +31,23 @@ onoff=[
 [False, False, False, False, False,     False, False, True], # disp .
 ]
 # TODO: 0z > add out of range display
+# TODO: 0z > add all off function
 #-------------------
-codes=[ 3, 1, 4, 1]
 
-# 1. setup
-for idx in range(0, len(pinnum)):
-	GPIO.setup(pinnum[idx], GPIO.OUT)
+def info7seg_init():
+	print "init"
+	for idx in range(0, len(pinnum)): 
+		GPIO.setup(pinnum[idx], GPIO.OUT) # a..h
 
-# 2. 7seg LED on
-for idx in range(0, len(pinnum)): # a..g
-	GPIO.output(pinnum[idx], onoff[1][idx])
-time.sleep(5.0)
+def info7seg_on(number):
+	print "on"
+	for idx in range(0, len(pinnum)): # a..h
+		GPIO.output(pinnum[idx], onoff[number][idx])
 
-print "-------"
-
-'''
-for digit in range(0, 4): # TODO: 1> size of
-	code = codes[digit]
-	print code
-	for idx in range(0, len(pinnum)): # a..g
-		print pinnum[idx], onoff[code][idx]
-	time.sleep(1.0)
-'''
+info7seg_init()
+info7seg_on(2)
+time.sleep(1)
+info7seg_on(7)
+time.sleep(1)
+info7seg_on(1)
+time.sleep(1)
