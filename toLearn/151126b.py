@@ -2,10 +2,10 @@ import time
 
 #--- selection of import based on the package ---
 ''' 1. with RPi.GPIO'''
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 ''' 2. without RPi.GPIO'''
-from dummyGPIO import CDummyGPIO
-GPIO = CDummyGPIO()
+#from dummyGPIO import CDummyGPIO
+#GPIO = CDummyGPIO()
 #-----------------
 
 # TODO: 0m > dummyGPIO
@@ -40,7 +40,7 @@ for idx in range(0, len(pinnum)):
 
 # 2. 7seg LED on
 for idx in range(0, len(pinnum)): # a..g
-	GPIO.setup(pinnum[idx], onoff[3][idx])
+	GPIO.output(pinnum[idx], onoff[1][idx])
 time.sleep(5.0)
 
 print "-------"
