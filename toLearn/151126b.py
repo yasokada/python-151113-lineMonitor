@@ -16,6 +16,7 @@ onoff=[
 [False, False, False, False, False,   False, False, False], # dummy 8
 [False, False, False, False, False,   False, False, False], # dummy 9
 ]
+# TODO: 0z > add out of range display
 #-------------------
 codes=[ 3, 1, 4, 1]
 
@@ -25,4 +26,4 @@ for digit in range(0, 4): # TODO: 1> size of
 	code = codes[digit]
 	print code
 	for idx in range(0, numsegs):
-		print pinnum[idx], onoff[digit - 1][idx]
+		print pinnum[idx], onoff[code- 1][idx]
