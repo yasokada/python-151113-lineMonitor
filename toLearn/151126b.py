@@ -1,3 +1,17 @@
+import time
+
+#--- selection of import based on the package ---
+''' 1. with RPi.GPIO'''
+#import RPi.GPIO as GPIO
+''' 2. without RPi.GPIO'''
+from dummyGPIO import CDummyGPIO
+GPIO = CDummyGPIO()
+#-----------------
+
+# TODO: 0m > dummyGPIO
+
+GPIO.setmode(GPIO.BOARD)
+
 #-------------------
 # Pin# of RPi2 (changes according to connection)
 pinnum=[3, 5, 7, 11, 13, 15, 19, 21]
@@ -20,6 +34,12 @@ onoff=[
 #-------------------
 codes=[ 3, 1, 4, 1]
 
+
+for idx in range(0, len(pinnum)):
+	GPIO.setup(pinnum[idx], GPIO.OUT)
+
+print "-------"
+
 numsegs=8 # a..g
 
 for digit in range(0, 4): # TODO: 1> size of
@@ -27,3 +47,4 @@ for digit in range(0, 4): # TODO: 1> size of
 	print code
 	for idx in range(0, numsegs):
 		print pinnum[idx], onoff[code][idx]
+	time.sleep(1.0)
