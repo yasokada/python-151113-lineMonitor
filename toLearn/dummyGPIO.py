@@ -1,5 +1,6 @@
 '''
 v0.1 2015/11/26
+  - add output()
   - add setmode()
   - add setup()
 '''
