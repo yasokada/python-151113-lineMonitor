@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from utilUdpCmd import recvCommand, procCommand, getSetting
 from utilSetting import CSetting
 from utilComRelay import comrelay, comReopen
@@ -13,6 +14,8 @@ import serial
 
 
 '''
+v0.6 2015/11/28
+  - add 1st line for auto start at /etc/rc.local
 v0.5 2015/11/21
   - tweak Seiral timeout to fix slowness of the communication 
 v0.4 2015/11/21
