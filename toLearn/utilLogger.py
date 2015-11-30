@@ -3,6 +3,7 @@ import datetime
 
 '''
 v0.3  2015/11/30
+	- change array declaration to those using range()
 	- __init__() does not take saveto arg 
 	- automatically get file name based on the date
 v0.2  2015/11/30
@@ -17,7 +18,7 @@ class CUtilLogger:
 	def __init__(self):
 		self.idx = 0
 		self.bufferNum = 5
-		self.strs = [ "", "", "", "", "", ""]
+		self.strs = [ 0 for idx in range(10)]
 		return
 
 	def clear(self):
