@@ -46,4 +46,3 @@ class CSetting:
 	def getCmdPort(self):
 		return self.cmdport
 
-# TODO: 0m> get/set current ip address of RPi2
