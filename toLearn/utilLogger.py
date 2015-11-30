@@ -1,6 +1,10 @@
 import os.path
+import datetime
 
 '''
+v0.3  2015/11/30
+	- __init__() does not take saveto arg 
+	- automatically get file name based on the date
 v0.2  2015/11/30
 	- update add() to handle auto save feature
 v0.1  2015/11/30
@@ -10,11 +14,10 @@ v0.1  2015/11/30
 '''
 
 class CUtilLogger:
-	def __init__(self, saveto):
+	def __init__(self):
 		self.idx = 0
 		self.maxnum = 5
 		self.strs = [ "", "", "", "", "", ""]
-		self.saveto = saveto
 		return
 
 	def clear(self):
@@ -31,13 +34,16 @@ class CUtilLogger:
 			self.clear()
 
 	def save(self):
-		with open(self.saveto, "a") as logfd:
+		today = datetime.date.today()
+		yymmdd = today.strftime("%y%m%d")
+		filename = yymmdd + ".log"
+		with open(filename, "a") as logfd:
 			for idx in range(0, self.idx):
 				text = self.strs[idx] + "\r\n"
 				logfd.write(text)	
 
 #Usage 
-logger = CUtilLogger("151130.log")
+logger = CUtilLogger()
 for loop in range(0, 31):
 	logger.add("test")
 logger.save() # to save the rest
