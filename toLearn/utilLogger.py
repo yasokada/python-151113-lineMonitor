@@ -16,7 +16,7 @@ v0.1  2015/11/30
 class CUtilLogger:
 	def __init__(self):
 		self.idx = 0
-		self.maxnum = 5
+		self.bufferNum = 5
 		self.strs = [ "", "", "", "", "", ""]
 		return
 
@@ -28,8 +28,8 @@ class CUtilLogger:
 	def add(self,str):
 		self.strs[self.idx] = str
 		self.idx = self.idx + 1
-		print self.idx
-		if self.idx >= self.maxnum:
+#		print self.idx
+		if self.idx >= self.bufferNum:
 			self.save()
 			self.clear()
 
