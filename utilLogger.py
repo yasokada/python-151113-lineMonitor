@@ -58,4 +58,5 @@ logger.save() # to save the rest
 logger = None
 '''
 
-
+# TODO: 0m > add time stamp to the save string
+# TODO: 0m > save to folder (Log/)
