@@ -2,6 +2,8 @@ import os.path
 import datetime
 
 '''
+v0.5  2015/12/01
+	- add time stamp to the save strings
 v0.4  2015/11/30
 	- comment out test run
 	- add from sentence to import CUtilLogger
@@ -30,7 +32,10 @@ class CUtilLogger:
 		self.idx = 0
 
 	def add(self,str):
-		self.strs[self.idx] = str
+		today = datetime.datetime.today()
+		yymmddhhnnss = today.strftime("%Y/%m/%d,%H:%M:%S")
+		text = yymmddhhnnss + "," + str
+		self.strs[self.idx] = text
 		self.idx = self.idx + 1
 #		print self.idx
 		if self.idx >= self.bufferNum:
@@ -38,7 +43,7 @@ class CUtilLogger:
 			self.clear()
 
 	def save(self):
-		today = datetime.date.today()
+		today = datetime.datetime.today()
 		yymmdd = today.strftime("%y%m%d")
 		filename = yymmdd + ".log"
 		with open(filename, "a") as logfd:
