@@ -43,10 +43,15 @@ class CUtilLogger:
 			self.save()
 			self.clear()
 
+	def makeFolder(self):
+		if os.path.isdir("Log") == False:
+			os.mkdir("Log")
+
 	def save(self):
+		self.makeFolder()
 		today = datetime.datetime.today()
 		yymmdd = today.strftime("%y%m%d")
-		filename = yymmdd + ".log"
+		filename = "Log/" + yymmdd + ".log"
 		with open(filename, "a") as logfd:
 			for idx in range(0, self.idx):
 				text = self.strs[idx] + "\r\n"
