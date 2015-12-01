@@ -1,7 +1,10 @@
 import os.path
 import datetime
+import time
 
 '''
+v0.6  2015/12/02
+	- add msec string for time stamp
 v0.5  2015/12/01
 	- remove CRLF at the end of the line
 	- save to Log/
@@ -34,10 +37,11 @@ class CUtilLogger:
 			self.strs[idx] = ""
 		self.idx = 0
 
-	def add(self,str):
+	def add(self,instr):
 		today = datetime.datetime.today()
 		yymmddhhnnss = today.strftime("%Y/%m/%d,%H:%M:%S")
-		text = yymmddhhnnss + "," + str
+		msec = str(int(round(time.time() * 1000) % 1000))
+		text = yymmddhhnnss + "," + msec + "," + instr
 		self.strs[self.idx] = text
 		self.idx = self.idx + 1
 #		print self.idx
