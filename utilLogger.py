@@ -3,6 +3,7 @@ import datetime
 
 '''
 v0.5  2015/12/01
+	- use [0] * 10 to declare a List
 	- add time stamp to the save strings
 v0.4  2015/11/30
 	- comment out test run
@@ -23,7 +24,7 @@ class CUtilLogger:
 	def __init__(self):
 		self.idx = 0
 		self.bufferNum = 5
-		self.strs = [ 0 for idx in range(10)]
+		self.strs = [0] * 10
 		return
 
 	def clear(self):
