@@ -98,3 +98,5 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
+# TODO: 0m> fix for UDP fail when RPi2 does not get IP address > to work only COM relay
