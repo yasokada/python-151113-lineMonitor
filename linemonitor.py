@@ -15,7 +15,8 @@ import serial
 
 
 '''
-v0.7 2015/12/01
+v0.7 2015/12/02
+  - change prefix string from "1:" to "rcvd1," for csv handling
   - save Log feature
 v0.6 2015/11/28
   - add 1st line for auto start at /etc/rc.local
@@ -78,14 +79,14 @@ def main():
 
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
 		if isNL == True: # new line
-			text = "1:" + rcvd1
+			text = "rcvd1," + rcvd1
 			monsock.sendto(text, (monip, int(monport)))
 			logger.add(text)
 			rcvd1 = ""
 		
 		rcvd2,isNL = comrelay(rcvd2, con2, con1)
 		if isNL == True:
-			text = "2:" + rcvd2
+			text = "rcvd2," + rcvd2
 			monsock.sendto(text, (monip, int(monport)))
 			logger.add(text)
 			rcvd2 = ""
