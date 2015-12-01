@@ -55,6 +55,7 @@ class CUtilLogger:
 # Usage 
 
 '''
+import time
 from utilLogger import CUtilLogger
 logger = CUtilLogger()
 
