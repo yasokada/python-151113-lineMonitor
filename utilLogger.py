@@ -3,6 +3,7 @@ import datetime
 
 '''
 v0.5  2015/12/01
+	- save to Log/
 	- use [0] * 10 to declare a List
 	- add time stamp to the save strings
 v0.4  2015/11/30
