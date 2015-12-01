@@ -59,9 +59,9 @@ logger = CUtilLogger()
 
 for loop in range(0, 31):
 	logger.add("test")
+	time.sleep(0.3)
 logger.save() # to save the rest
 logger = None
 '''
 
-# TODO: 0m > add time stamp to the save string
 # TODO: 0m > save to folder (Log/)
