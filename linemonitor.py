@@ -2,6 +2,7 @@
 from utilUdpCmd import recvCommand, procCommand, getSetting
 from utilSetting import CSetting
 from utilComRelay import comrelay, comReopen
+from utilLogger import CUtilLogger
 import socket
 
 #--- selection of import based on the package ---
@@ -14,6 +15,8 @@ import serial
 
 
 '''
+v0.7 2015/12/01
+  - save Log feature
 v0.6 2015/11/28
   - add 1st line for auto start at /etc/rc.local
 v0.5 2015/11/21
@@ -32,6 +35,7 @@ v0.1 2015/11/13
 # HACKME: something does not sit right concerning "setting" passing (g_setting)
 
 g_setting = CSetting() # for having g_setting as global
+logger = CUtilLogger()
 
 def main():
 	# command udp setting
@@ -74,12 +78,16 @@ def main():
 
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
 		if isNL == True: # new line
-			monsock.sendto("1:" + rcvd1, (monip, int(monport)))
+			text = "1:" + rcvd1
+			monsock.sendto(text, (monip, int(monport)))
+			logger.add(text)
 			rcvd1 = ""
 		
 		rcvd2,isNL = comrelay(rcvd2, con2, con1)
 		if isNL == True:
-			monsock.sendto("2:" + rcvd2, (monip, int(monport)))
+			text = "2:" + rcvd2
+			monsock.sendto(text, (monip, int(monport)))
+			logger.add(text)
 			rcvd2 = ""
 
 		rcvcmd,rcvd = recvCommand(cmdsock, rcvcmd)
