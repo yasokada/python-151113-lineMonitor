@@ -77,4 +77,4 @@ logger.save() # to save the rest
 logger = None
 '''
 
-# TODO: 0m > save to folder (Log/)
+# TODO: 0m > log files cannot be deleted by user "pi"
