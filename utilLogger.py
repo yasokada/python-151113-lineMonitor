@@ -3,6 +3,7 @@ import datetime
 
 '''
 v0.5  2015/12/01
+	- remove CRLF at the end of the line
 	- save to Log/
 	- use [0] * 10 to declare a List
 	- add time stamp to the save strings
@@ -55,7 +56,7 @@ class CUtilLogger:
 		filename = "Log/" + yymmdd + ".log"
 		with open(filename, "a") as logfd:
 			for idx in range(0, self.idx):
-				text = self.strs[idx] + "\r\n"
+				text = self.strs[idx]
 				logfd.write(text)	
 
 # Usage 
