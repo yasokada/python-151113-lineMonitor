@@ -67,7 +67,7 @@ class CUtilLogger:
 			for idx in range(0, self.idx):
 				text = self.strs[idx]
 				logfd.write(text)	
-		os.chmod(filename, S_IWUSR | S_IRUSR | S_IRGRP | S_IWOTH | S_IROTH)
+		os.chmod(filename, S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IWOTH | S_IROTH)
 
 # Usage 
 
