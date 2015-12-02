@@ -7,7 +7,7 @@ from stat import *
 
 '''
 v0.7  2015/12/03
-	- change access mode of the file to make OTHER writable
+	- change access mode of the file and folder(Log/) to make OTHER writable
 v0.6  2015/12/02
 	- add msec string for time stamp
 v0.5  2015/12/01
@@ -57,6 +57,7 @@ class CUtilLogger:
 	def makeFolder(self):
 		if os.path.isdir("Log") == False:
 			os.mkdir("Log")
+			os.chmod("Log", S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IWOTH | S_IROTH)
 
 	def save(self):
 		self.makeFolder()
