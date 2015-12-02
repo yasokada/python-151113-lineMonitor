@@ -1,8 +1,13 @@
 import os.path
 import datetime
 import time
+# for chmod
+import os
+from stat import *
 
 '''
+v0.7  2015/12/03
+	- change access mode of the file to make OTHER writable
 v0.6  2015/12/02
 	- add msec string for time stamp
 v0.5  2015/12/01
@@ -62,6 +67,7 @@ class CUtilLogger:
 			for idx in range(0, self.idx):
 				text = self.strs[idx]
 				logfd.write(text)	
+		os.chmod(filename, S_IWUSR | S_IRUSR | S_IRGRP | S_IWOTH | S_IROTH)
 
 # Usage 
 
