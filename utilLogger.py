@@ -57,7 +57,7 @@ class CUtilLogger:
 	def makeFolder(self):
 		if os.path.isdir("Log") == False:
 			os.mkdir("Log")
-			os.chmod("Log", S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IWOTH | S_IROTH)
+#			os.chmod("Log", S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IWOTH | S_IROTH)
 
 	def save(self):
 		self.makeFolder()
