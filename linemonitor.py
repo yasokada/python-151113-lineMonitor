@@ -85,7 +85,7 @@ def main():
 			try:
 				monsock.sendto(text, (monip, int(monport)))
 			except socket.error, msg:
-				print str(msg[0])
+				print "udp network is not available." + "err:" + str(msg[0])
 			logger.add(text)
 			rcvd1 = ""
 		
@@ -95,7 +95,7 @@ def main():
 			try:
 				monsock.sendto(text, (monip, int(monport)))
 			except socket.error, msg:
-				print str(msg[0])
+				print "udp network is not available." + "err:" + str(msg[0])
 			logger.add(text)
 			rcvd2 = ""
 
