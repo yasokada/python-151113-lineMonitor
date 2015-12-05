@@ -15,6 +15,8 @@ import serial
 
 
 '''
+v0.8 2015/12/08
+  - avoid udp send error when the network is not available
 v0.7 2015/12/02
   - change prefix string from "1:" to "rcvd1," for csv handling
   - save Log feature
@@ -80,14 +82,20 @@ def main():
 		rcvd1,isNL = comrelay(rcvd1, con1, con2)
 		if isNL == True: # new line
 			text = "rcvd1," + rcvd1
-			monsock.sendto(text, (monip, int(monport)))
+			try:
+				monsock.sendto(text, (monip, int(monport)))
+			except socket.error, msg:
+				print str(msg[0])
 			logger.add(text)
 			rcvd1 = ""
 		
 		rcvd2,isNL = comrelay(rcvd2, con2, con1)
 		if isNL == True:
 			text = "rcvd2," + rcvd2
-			monsock.sendto(text, (monip, int(monport)))
+			try:
+				monsock.sendto(text, (monip, int(monport)))
+			except socket.error, msg:
+				print str(msg[0])
 			logger.add(text)
 			rcvd2 = ""
 
