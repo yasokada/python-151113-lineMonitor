@@ -7,13 +7,22 @@ import serial
 #serial = CDummySerial()
 #-----------------
 
+'''
+v0.2 2015/12/09
+  - comrelay() takes "\r" also as new line
+
+v0.1 2015/11/12
+  - add comrelay()
+  - add comReopen() 
+'''
+
 import time
 
 def comrelay(rcvd, srccom, dstcom):
     str1 = srccom.read()
     if (len(str1) > 0):
         rcvd = rcvd + str1
-    if "\n" in rcvd:
+    if "\n" in rcvd or "\r" in rcvd:
         print "rcvd=", rcvd
         dstcom.write(rcvd)
         return rcvd, True # new line = true
