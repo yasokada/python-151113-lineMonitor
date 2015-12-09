@@ -6,6 +6,8 @@ import os
 from stat import *
 
 '''
+v0.8  2015/12/09
+	- add <LF> when the logging string does not have <LF> at the line ending
 v0.7  2015/12/03
 	- change access mode of the file and folder(Log/) to make OTHER writable
 v0.6  2015/12/02
@@ -43,6 +45,8 @@ class CUtilLogger:
 		self.idx = 0
 
 	def add(self,instr):
+		if "\n" not in instr:
+			instr = instr + "\n"
 		today = datetime.datetime.today()
 		yymmddhhnnss = today.strftime("%Y/%m/%d,%H:%M:%S")
 		msec = str(int(round(time.time() * 1000) % 1000))
