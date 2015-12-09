@@ -15,7 +15,8 @@ import serial
 
 
 '''
-v0.8 2015/12/08
+v0.8 2015/12/09
+  - utilLogger > add LF if string does not have
   - avoid udp send error when the network is not available
 v0.7 2015/12/02
   - change prefix string from "1:" to "rcvd1," for csv handling
