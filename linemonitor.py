@@ -15,6 +15,8 @@ import serial
 
 
 '''
+v0.9 2016 Feb. 16
+  - utilComRelay > handle control character without <CR>,<LF> such as <ACK>, <NAK>
 v0.8 2015/12/09
   - utilLogger > add LF if string does not have
   - avoid udp send error when the network is not available
