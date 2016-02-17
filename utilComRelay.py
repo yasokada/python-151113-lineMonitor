@@ -9,6 +9,7 @@ import serial
 
 '''
 v0.3 2016 Feb. 16
+  - fix bug > did com.write(rcvd) by mistake
   - handle control character without <CR>,<LF> such as <ACK>, <NAK>
 v0.2 2015/12/09
   - comrelay() takes "\r" also as new line
@@ -30,7 +31,7 @@ def comrelay(rcvd, srccom, dstcom):
     str1 = srccom.read()
     if len(str1) > 0 and isControlCharOtherThanCRLF(str1):
         print "rcvd:control char:" + str(ord(str1))
-        dstcom.write(rcvd)
+        dstcom.write(str1)
         return ".", True # new line = true
     if (len(str1) > 0):
         rcvd = rcvd + str1
